@@ -1,0 +1,29 @@
+version: '3.9'
+
+services: # Servicio para PostgreSQL
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: postgres:14
+    container_name: bdd_postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: bdd_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  # Servicio para PgAdmin
+  pgadmin:
+    image: dpage/pgadmin4:7.5
+    container_name: bdd_pg_admin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
