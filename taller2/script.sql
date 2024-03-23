@@ -16,8 +16,8 @@ cards_red int not null
 );
 
 create table school_matches (
-team1 text not null references school_teams(team), 
-team2 text not null references school_teams(team), 
+team1 text not null references school_teams(team) on update cascade on delete cascade, 
+team2 text not null references school_teams(team) on update cascade on delete cascade, 
 goals_team1 int not null, 
 goals_team2 int not null, 
 stage text not null,
@@ -35,3 +35,9 @@ FROM '/matches.csv'
 DELIMITER ';'
 CSV HEADER --para indicar que saltee la primera l´ınea
 ENCODING 'LATIN1';
+
+update school_teams
+set team = 'ARG'
+where team = 'ARGENTINA';
+
+select * from school_matches where team1 = 'ARG' or team2 = 'ARG';
