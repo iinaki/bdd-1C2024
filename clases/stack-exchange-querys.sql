@@ -71,3 +71,13 @@ where t.TagName = 'c#' and p.parentId is null
 group by u.id
 order by sum(rta.score) desc
 offset 0 rows fetch first 10 rows only;
+
+
+-- WITH RECURSIVO: ciudades alcanzables desde Paris
+with recursive DestinosAlcanzables(nombreCiudad) 
+    as (values ('paris')
+    union(
+        select destinio
+        from DestinosAlcanzables inner join Vuelos on (origenes = nombreCiudad)
+    ))
+select * from DestinosAlcanzables;
