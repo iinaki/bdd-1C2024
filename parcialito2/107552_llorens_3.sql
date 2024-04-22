@@ -1,7 +1,6 @@
 select i.codigo as codigo_departamento, n.codigo as codigo_carrera, AVG(n.nota) as promedio_general
 from inscripto_en i
-inner join alumnos a on i.padron = a.padron
-inner join notas n on a.padron = n.padron
+inner join notas n on i.padron = n.padron
 group by i.codigo, n.codigo
 order by i.codigo, n.codigo;
 
