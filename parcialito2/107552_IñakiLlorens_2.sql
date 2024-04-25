@@ -5,6 +5,5 @@ and n.padron in (select padron from notas where codigo = 71 and numero = 15)
 and n.padron not in (select padron from notas where codigo = 75 and numero = 01)
 and n.padron not in (select padron from notas where codigo = 75 and numero = 15);
 
-
 -- Resultados --
 -- 86000	"Díaz"
