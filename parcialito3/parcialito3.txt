@@ -1,0 +1,6 @@
+PARCIALITO NORMALIZACION
+
+1. R(ABCDEGH) F = { B -> H, AB -> C, ABD > E, E -> C, GH -> A, C -> D, H -> E } 
+indicar si las siguientes dependecias funcionales pueden ser deducidas partiendo del conjunto original
+
+a) D -> E 
